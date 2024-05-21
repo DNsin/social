@@ -4,10 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="154a0877-78b1-4031-b181-bddfe48069d7" name="Changes" comment="11">
+    <list default="true" id="154a0877-78b1-4031-b181-bddfe48069d7" name="Changes" comment="частично сделан поиск">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/database.py" beforeDir="false" afterPath="$PROJECT_DIR$/database.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/router.py" beforeDir="false" afterPath="$PROJECT_DIR$/router.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -35,22 +34,22 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "FastAPI.fastApiProject.executor": "Run",
-    "HTTP Request.All in test_main.executor": "Run",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "ignore.virus.scanning.warn.message": "true",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "settings.editor.selected.configurable": "editor.preferences.folding",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;FastAPI.fastApiProject.executor&quot;: &quot;Run&quot;,
+    &quot;HTTP Request.All in test_main.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;editor.preferences.folding&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RunManager" selected="FastAPI.fastApiProject">
     <configuration name="All in test_main" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" path="$PROJECT_DIR$/test_main.http">
       <method v="2" />
@@ -93,7 +92,8 @@
       <updated>1715868474561</updated>
       <workItem from="1715868525124" duration="1433000" />
       <workItem from="1715934987328" duration="24900000" />
-      <workItem from="1716207186507" duration="7328000" />
+      <workItem from="1716207186507" duration="7387000" />
+      <workItem from="1716303652941" duration="1025000" />
     </task>
     <task id="LOCAL-00001" summary="11">
       <option name="closed" value="true" />
@@ -103,7 +103,15 @@
       <option name="project" value="LOCAL" />
       <updated>1716207062788</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="частично сделан поиск">
+      <option name="closed" value="true" />
+      <created>1716274874755</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1716274874755</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -111,9 +119,10 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="11" />
-    <option name="LAST_COMMIT_MESSAGE" value="11" />
+    <MESSAGE value="частично сделан поиск" />
+    <option name="LAST_COMMIT_MESSAGE" value="частично сделан поиск" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/fastApiProject$fastApiProject.coverage" NAME="fastApiProject Coverage Results" MODIFIED="1716274716329" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
+    <SUITE FILE_PATH="coverage/fastApiProject$fastApiProject.coverage" NAME="fastApiProject Coverage Results" MODIFIED="1716304677451" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
   </component>
 </project>

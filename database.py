@@ -83,11 +83,8 @@ class UsersCreds:
         try:
             connector = psycopg2.connect(dbname='social', user='postgres', password='sinicin123')
             engine = connector.cursor()
-            find_query = """select u.user_id, u.first_name, u.second_name, u.third_name, u.sex, date_birth, c.city_name, hobby from users u join cities c on u.city_id = c.city_id where u.first_name = %s and u.second_name = %s"""
-            engine.execute(find_query, [user_dict["user_first_name"], user_dict["user_last_name"]])
+            engine.execute("select u.user_id, u.first_name, u.second_name, u.third_name, u.sex, date_birth, c.city_name, hobby from users u join cities c on u.city_id = c.city_id where u.first_name = %s and u.second_name=%s",(user_dict["user_first_name"], user_dict["user_last_name"]))
             result = engine.fetchall()
-            #print(result)
-            #result = list(map(itemgetter(0), result))
         except (Exception, psycopg2.DatabaseError) as error:
             print("Error while connecting to PostgresSQL", error)
         finally:
