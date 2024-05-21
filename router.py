@@ -1,9 +1,9 @@
 import uuid
 from typing import Annotated
 
-from fastapi import APIRouter, Depends
+from fastapi import APIRouter, Depends, Body
 
-from database import UsersCreds, UserLog, UserReg
+from database import UsersCreds, UserLog, UserReg, UserSearch
 
 router = APIRouter(
     prefix="/user",
@@ -21,14 +21,15 @@ async def root():
 
 
 @router_cred.post("/registration")
-async def registration(user_reg: Annotated[UserReg, Depends()]) -> str:
+async def registration(user_reg: Annotated[UserReg, Depends(), Body()]) -> str:
     user_reg_ok = UsersCreds.user_registration(user_reg)
     return user_reg_ok
 
 
 @router.post("/search")
-async def search():
-    return {"message": "Hello World"}
+async def search(user_search: Annotated[UserSearch, Depends()]):
+    user_search = UsersCreds.search_user(user_search)
+    return user_search
 
 
 @router.get("/{user_id}")
@@ -37,6 +38,6 @@ async def user():
 
 
 @router_cred.post("/login")
-def say_hello(user_log: Annotated[UserLog, Depends()]) -> str:
+def say_hello(user_log: Annotated[UserLog, Depends(), Body()]) -> str:
     user_log_ok = UsersCreds.user_login(user_log)
     return user_log_ok
