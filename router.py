@@ -3,7 +3,7 @@ from typing import Annotated
 
 from fastapi import APIRouter, Depends, Body
 
-from database import UsersCreds, UserLog, UserReg, UserSearch
+from database import UsersCreds, UserLog, UserReg, UserSearch, UserSearchId
 
 router = APIRouter(
     prefix="/user",
@@ -33,11 +33,12 @@ async def search(user_search: Annotated[UserSearch, Depends()]):
 
 
 @router.get("/{user_id}")
-async def user():
-    return {"message": "Hello World"}
+async def user_by_id(user_id: Annotated[UserSearchId, Depends()]) -> UserReg:
+    user_search_id = UsersCreds.get_user_by_id(user_id)
+    return user_search_id
 
 
 @router_cred.post("/login")
-def say_hello(user_log: Annotated[UserLog, Depends(), Body()]) -> str:
+def login(user_log: Annotated[UserLog, Depends(), Body()]) -> str:
     user_log_ok = UsersCreds.user_login(user_log)
     return user_log_ok

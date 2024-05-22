@@ -27,6 +27,10 @@ class UserSearch(BaseModel):
     user_last_name: str
 
 
+class UserSearchId(BaseModel):
+    user_id: str
+
+
 class UsersCreds:
     @classmethod
     def user_login(cls, data: UserLog) -> str:
@@ -84,6 +88,27 @@ class UsersCreds:
             connector = psycopg2.connect(dbname='social', user='postgres', password='sinicin123')
             engine = connector.cursor()
             engine.execute("select u.user_id, u.first_name, u.second_name, u.third_name, u.sex, date_birth, c.city_name, hobby from users u join cities c on u.city_id = c.city_id where u.first_name = %s and u.second_name=%s",(user_dict["user_first_name"], user_dict["user_last_name"]))
+            result = engine.fetchall()
+        except (Exception, psycopg2.DatabaseError) as error:
+            print("Error while connecting to PostgresSQL", error)
+        finally:
+            # closing database connection.
+            if connector:
+                engine.close()
+                connector.close()
+                print("PostgresSQL connection is closed")
+        return result
+
+    @classmethod
+    def get_user_by_id(cls, data: UserSearchId) -> list | None:
+        global connector, engine
+        result = []
+        user_dict = data.model_dump()
+        try:
+            connector = psycopg2.connect(dbname='social', user='postgres', password='sinicin123')
+            engine = connector.cursor()
+            engine.execute(
+                "select u.user_id, u.first_name, u.second_name, u.third_name, u.sex, date_birth, c.city_name, hobby from users u join cities c on u.city_id = c.city_id where u.user_id = %s ", (user_dict["user_id"], ))
             result = engine.fetchall()
         except (Exception, psycopg2.DatabaseError) as error:
             print("Error while connecting to PostgresSQL", error)
