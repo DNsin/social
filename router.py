@@ -33,7 +33,7 @@ async def search(user_search: Annotated[UserSearch, Depends()]):
 
 
 @router.get("/{user_id}")
-async def user_by_id(user_id: Annotated[UserSearchId, Depends()]) -> UserReg:
+async def user_by_id(user_id: Annotated[UserSearchId, Depends()]) -> list | None:
     user_search_id = UsersCreds.get_user_by_id(user_id)
     return user_search_id
 

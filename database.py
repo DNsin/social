@@ -50,7 +50,7 @@ class UsersCreds:
             if connector:
                 engine.close()
                 connector.close()
-                print("PostgresSQL connection is closed")
+                #print("PostgresSQL connection is closed")
         result = list(map(itemgetter(0), result))[0]
         return result
 
@@ -76,7 +76,7 @@ class UsersCreds:
             if connector:
                 engine.close()
                 connector.close()
-                print("PostgresSQL connection is closed")
+               # print("PostgresSQL connection is closed")
         return result_reg[0]
 
     @classmethod
@@ -96,7 +96,7 @@ class UsersCreds:
             if connector:
                 engine.close()
                 connector.close()
-                print("PostgresSQL connection is closed")
+               # print("PostgresSQL connection is closed")
         return result
 
     @classmethod
@@ -110,6 +110,7 @@ class UsersCreds:
             engine.execute(
                 "select u.user_id, u.first_name, u.second_name, u.third_name, u.sex, date_birth, c.city_name, hobby from users u join cities c on u.city_id = c.city_id where u.user_id = %s ", (user_dict["user_id"], ))
             result = engine.fetchall()
+            result = list(result[0])
         except (Exception, psycopg2.DatabaseError) as error:
             print("Error while connecting to PostgresSQL", error)
         finally:
@@ -117,5 +118,5 @@ class UsersCreds:
             if connector:
                 engine.close()
                 connector.close()
-                print("PostgresSQL connection is closed")
+                #print("PostgresSQL connection is closed")
         return result
